@@ -54,10 +54,12 @@ func Errorf(format string, v ...interface{}) {
 func Fatal(v ...interface{}) {
 	pc, fn, line, _ := runtime.Caller(1)
 	log.Printf(fmt.Sprintf("[Fatal] [%s] %s:%d", runtime.FuncForPC(pc).Name(), fn, line), v...)
+	os.Exit(1)
 }
 
 // Fatalf
 func Fatalf(format string, v ...interface{}) {
 	pc, fn, line, _ := runtime.Caller(1)
 	log.Printf(fmt.Sprintf("[Fatal] [%s] %s:%d %s", runtime.FuncForPC(pc).Name(), fn, line, format), v...)
+	os.Exit(1)
 }

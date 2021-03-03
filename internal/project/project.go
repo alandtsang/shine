@@ -25,12 +25,6 @@ func InitProject(args []string) (string, error) {
 		return "", err
 	}
 
-	if len(args) > 0 {
-		if args[0] != "." {
-			curDir = fmt.Sprintf("%s/%s", curDir, args[0])
-		}
-	}
-
 	pkgName := args[0]
 	author := args[1]
 	copyright := license.CreateCopyright(author)
